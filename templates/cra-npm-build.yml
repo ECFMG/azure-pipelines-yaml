@@ -50,8 +50,7 @@ steps:
       npm run-script build
     workingDirectory: '$(Build.SourcesDirectory)/${{parameters.buildPath}}'
   env: 
-    ${{parameters.buildEnvSettings}} |
-    npm_config_cache: $(Pipeline.Workspace)/.npm
+    <<: [${{parameters.buildEnvSettings}} | npm_config_cache: $(Pipeline.Workspace)/.npm]
 
 # Add the files to be deployed to a zip archive to be used later as part of deployment
 - task: ArchiveFiles@2
