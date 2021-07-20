@@ -17,6 +17,9 @@ parameters:
   displayName: 'ENV Settings to be injected during npm build'
   type: object
 
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
 steps:
 
 # Ensure the LTS version of Node is installed
